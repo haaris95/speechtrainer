@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speech Trainer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Speech Trainer home">
+        <span class="logo-mark">ST</span>
+        <span>Speech Trainer</span>
+      </a>
+      <span class="top-pill">IELTS Speaking Simulator</span>
+    </header>
+
+    <main class="app-shell">
+      <section class="screen intro-screen is-active" id="introScreen">
+        <div class="intro-copy">
+          <p class="eyebrow">AI mock examiner</p>
+          <h1>Practice IELTS speaking like a real interview.</h1>
+          <p>
+            Speech Trainer generates IELTS-style questions, records your spoken
+            answers, evaluates fluency and pronunciation, then presents a professional
+            improvement report.
+          </p>
+          <button class="primary-button" id="startTest" type="button">Start Mock Test</button>
+        </div>
+        <div class="intro-panel" aria-label="Session preview">
+          <div class="signal">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <strong>3-part speaking session</strong>
+          <p>Fresh questions, audio analysis, and IELTS-style coaching.</p>
+        </div>
+      </section>
+
+      <section class="screen test-screen" id="testScreen" aria-live="polite">
+        <div class="test-header">
+          <div>
+            <p class="eyebrow" id="partLabel">Ready</p>
+            <h2 id="sectionTitle">Warm-up</h2>
+          </div>
+          <div class="progress-wrap" aria-label="Question progress">
+            <span id="progressFill"></span>
+          </div>
+        </div>
+
+        <article class="question-stage">
+          <span class="question-count" id="questionCounter">Question 1 of 5</span>
+          <h1 id="questionText">Click Start Mock Test to begin.</h1>
+          <p id="questionHint">Use your natural speaking voice.</p>
+        </article>
+
+        <section class="answer-stage">
+          <div class="transcript-box">
+            <div class="box-title">
+              <strong>Your answer</strong>
+              <span id="speechStatus">Microphone idle</span>
+            </div>
+            <p id="transcriptText">Your spoken answer will appear here.</p>
+          </div>
+
+          <div class="action-row">
+            <button class="record-button" id="recordButton" type="button" disabled>
+              <span></span>
+              Record Answer
+            </button>
+            <button class="secondary-button" id="nextQuestion" type="button" disabled>Next Question</button>
+          </div>
+        </section>
+
+        <ol class="question-list" id="questionList" aria-label="Interview question list"></ol>
+      </section>
+
+      <section class="screen result-screen" id="resultScreen">
+        <div class="report-hero">
+          <div>
+            <p class="eyebrow">Performance report</p>
+            <h1>IELTS speaking estimate</h1>
+            <p id="resultStatus">Audio and transcript analysis complete.</p>
+          </div>
+          <div class="band-card">
+            <span>Overall band</span>
+            <strong id="bandScore">--</strong>
+          </div>
+        </div>
+
+        <section class="metric-grid">
+          <article>
+            <span>Fluency</span>
+            <strong id="fluencyScore">--</strong>
+            <p>Pace, continuity, pauses, and coherence.</p>
+          </article>
+          <article>
+            <span>Pronunciation</span>
+            <strong id="pronunciationScore">--</strong>
+            <p>Accuracy, prosody, stress, and clarity.</p>
+          </article>
+          <article>
+            <span>Vocabulary</span>
+            <strong id="vocabScore">--</strong>
+            <p>Range, precision, and topic language.</p>
+          </article>
+          <article>
+            <span>Grammar</span>
+            <strong id="grammarScore">--</strong>
+            <p>Sentence control and complexity.</p>
+          </article>
+        </section>
+
+        <section class="report-section">
+          <div>
+            <p class="eyebrow">Examiner feedback</p>
+            <h2>How to improve</h2>
+          </div>
+          <div class="feedback-list" id="feedbackList">
+            <p>Complete the mock test to generate feedback.</p>
+          </div>
+        </section>
+
+        <button class="primary-button hidden-action" id="scoreTest" type="button" disabled>Score My Speaking</button>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
